@@ -43,11 +43,11 @@ export default class Slider {
   }
 
   render() {
-    try {
-      this.hanson = document.querySelector(".hanson");
-    } catch (e) {
-      console.error(e);
+    this.hanson = document.querySelector(".hanson");
+    if (!this.hanson) {
+      console.error("Error! Hansom did not find");
     }
+
     this.buttons.forEach((button) => {
       button.addEventListener("click", () => {
         this.plusSlides(1);
