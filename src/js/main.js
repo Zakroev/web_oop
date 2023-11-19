@@ -1,4 +1,11 @@
-import { MainSlider, VideoPlayer, MiniSlider, Difference } from "../js/modules";
+import {
+  MainSlider,
+  VideoPlayer,
+  MiniSlider,
+  Difference,
+  ShowInfo,
+  Download,
+} from "../js/modules";
 
 window.addEventListener("DOMContentLoaded", () => {
   const slider = new MainSlider({ container: ".page", buttons: ".next" });
@@ -41,4 +48,8 @@ window.addEventListener("DOMContentLoaded", () => {
   player.init();
 
   new Difference(".officerold", ".officernew", ".officer__card-item").init();
+
+  new ShowInfo(".plus__content").init();
+
+  new Download(".download").init();
 });
