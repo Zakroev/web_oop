@@ -41,26 +41,27 @@ export default class MainSlider extends Slider {
   }
 
   render() {
-    this.hanson = document.querySelector(".hanson");
-    if (!this.hanson) {
-      console.error("Error! Hansom did not find");
-    }
+    try {
+      try {
+        this.hanson = document.querySelector(".hanson");
+      } catch (error) {}
 
-    this.buttons.forEach((button) => {
-      button.addEventListener("click", () => {
-        this.plusSlides(1);
+      this.buttons.forEach((button) => {
+        button.addEventListener("click", () => {
+          this.plusSlides(1);
+        });
+
+        button.parentNode.previousElementSibling.addEventListener(
+          "click",
+          (e) => {
+            e.preventDefault();
+            this.slideIndex = 1;
+            this.showSlides(this.slideIndex);
+          }
+        );
       });
 
-      button.parentNode.previousElementSibling.addEventListener(
-        "click",
-        (e) => {
-          e.preventDefault();
-          this.slideIndex = 1;
-          this.showSlides(this.slideIndex);
-        }
-      );
-    });
-
-    this.showSlides(this.slideIndex);
+      this.showSlides(this.slideIndex);
+    } catch (e) {}
   }
 }
