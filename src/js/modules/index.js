@@ -4,3 +4,5 @@ export { default as MainSlider } from "./slider/slider-main";
 export { default as MiniSlider } from "./slider/slider-mini";
 export { default as Difference } from "./difference";
 export { default as Form } from "./form";
+export { default as ShowInfo } from "./showInfo";
+export { default as Download } from "./download";
