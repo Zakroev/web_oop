@@ -66,20 +66,16 @@ export default class VideoPlayer {
       const playCircle = blockedElem.querySelector(".play__circle");
       const playBtn = this.activeBtn.querySelector("svg").cloneNode(true);
 
-      if (state.data === 0) {
-        if (playCircle.classList.contains("closed")) {
-          playCircle.classList.remove("closed");
-          playCircle.querySelector("svg").remove();
-          playCircle.appendChild(playBtn);
-          blockedElem.querySelector(".play__text").textContent = "play video";
-          blockedElem
-            .querySelector(".play__text")
-            .classList.remove("attention");
-          blockedElem.style.opacity = 1;
-          blockedElem.style.filter = "none";
+      if (state.data === 0 && playCircle.classList.contains("closed")) {
+        playCircle.classList.remove("closed");
+        playCircle.querySelector("svg").remove();
+        playCircle.appendChild(playBtn);
+        blockedElem.querySelector(".play__text").textContent = "play video";
+        blockedElem.querySelector(".play__text").classList.remove("attention");
+        blockedElem.style.opacity = 1;
+        blockedElem.style.filter = "none";
 
-          blockedElem.setAttribute("data-disabled", "false");
-        }
+        blockedElem.setAttribute("data-disabled", "false");
       }
     } catch (error) {}
   }
